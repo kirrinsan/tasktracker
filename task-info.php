@@ -11,19 +11,19 @@
         <form method="post" action="save-task.php">
             <fieldset>
                 <label for="presentDate">Date: </label>
-                <input name="presentDate" id="presentDate" type="date"/>
+                <input name="presentDate" id="presentDate" type="date" min="2022" max="2032"/>
             </fieldset>
             <fieldset>
                 <label for="taskName">Task: </label>
-                <input name="taskName" id="taskName"/>
+                <input name="taskName" id="taskName" required maxlength="100"/>
             </fieldset>
             <fieldset>
                 <label for="descr">Description: </label>
-                <input name="descr" id="descr"/>
+                <input name="descr" id="descr" required maxlength="150"/>
             </fieldset>
             <fieldset>
                 <label for="dueDate">Due Date: </label>
-                <input name="dueDate" id="dueDate" type="date"/>
+                <input name="dueDate" id="dueDate" type="date" min="2022" max="2032"/>
             </fieldset>
             <fieldset>
                 <label for="stat">Status: </label>

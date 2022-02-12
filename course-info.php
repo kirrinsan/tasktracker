@@ -11,7 +11,7 @@
     <form method="post" action="save-course.php">
         <fieldset>
             <label for="courseName">Course:</label>
-            <input name="courseName" id="courseName"/>
+            <input name="courseName" id="courseName" required maxlength="50"/>
         </fieldset>
         <button>Save</button>
     </form>
