@@ -18,7 +18,7 @@
             <form method="post" action="save-task.php">
                 <fieldset>
                     <label for="presentDate">Date: </label>
-                    <input name="presentDate" id="presentDate" type="date" min="2022" max="2032"/>
+                    <input name="presentDate" id="presentDate" type="date" min="2022-01-01" max="2032-01-01"/>
                 </fieldset>
                 <fieldset>
                     <label for="taskName">Task: </label>
@@ -30,7 +30,7 @@
                 </fieldset>
                 <fieldset>
                     <label for="dueDate">Due Date: </label>
-                    <input name="dueDate" id="dueDate" type="date" min="2022" max="2032"/>
+                    <input name="dueDate" id="dueDate" type="date"/>
                 </fieldset>
                 <fieldset>
                     <label for="stat">Status: </label>
@@ -66,7 +66,7 @@
                     <!-- Option to add new course to the list -->
                     <a href="course-info.php" class="nw-course-link">Add new course</a>
                 </fieldset>
-                </br>
+                <br>
                 <button class="save-btn">Save Task</button>
             </form>
             <!-- End Form -->

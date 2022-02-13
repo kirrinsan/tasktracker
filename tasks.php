@@ -59,8 +59,8 @@
                     ?>
                 </tbody>
             </table>
-            </br>
-            <button><a href="task-info.php">Add a new task</a></button>
+            <br>
+            <a href="task-info.php">Add a new task</a>
         </main>
     </body>
 </html>

@@ -20,7 +20,7 @@
                 <label for="courseName">Course:</label>
                 <input name="courseName" id="courseName" required maxlength="50"/>
             </fieldset>
-            </br>
+            <br>
             <button>Save</button>
         </form>
         <!-- End Form -->

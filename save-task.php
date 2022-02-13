@@ -26,40 +26,40 @@
 
             // Check for input validation
             if (empty($presentDate)) {
-                echo '<p>Date is required.</p></br>';
+                echo '<p>Date is required.</p><br>';
                 $isValid = false;
             } else {
                 // If date is less than 2022, print invalid
                 if ($presentDate < 2022) {
-                    echo '<p>Present date is invalid. Try again.</p></br>';
+                    echo '<p>Present date is invalid. Try again.</p><br>';
                     $isValid = false;
                 }
             }
 
             if (empty($taskName) || strlen($taskName > 100)) {
-                echo '<p>Task name is required. Must be at MAX 100 characters.</p></br>';
+                echo '<p>Task name is required. Must be at MAX 100 characters.</p><br>';
                 $isValid = false;
             }
 
             if (empty($descr) || strlen($taskName > 150)) {
-                echo '<p>Description is required. Must be at MAX 150 characters.</p></br>';
+                echo '<p>Description is required. Must be at MAX 150 characters.</p><br>';
                 $isValid = false;
             } else {
                 if (is_numeric($descr)) {
-                    echo '<p>Description cannot be numeric.</p></br>';
+                    echo '<p>Description cannot be numeric.</p><br>';
                 }
             }
 
             if (empty($dueDate)) {
-                echo '<p>Due date is required.</p></br>';
+                echo '<p>Due date is required.</p><br>';
                 $isValid = false;
             } else {
                 // If due date is less than 2022, print invalid
                 if ($dueDate < 2022) {
-                    echo '<p>Due date is invalid. Try again.</p></br>';
+                    echo '<p>Due date is invalid. Try again.</p><br>';
                     $isValid = false;
                 } else if ($dueDate < $presentDate) {
-                    echo '<p>Due date cannot be displayed before present date.</p></br>';
+                    echo '<p>Due date cannot be displayed before present date.</p><br>';
                     $isValid = false;
                 }
             }
@@ -91,7 +91,7 @@
                 $db = null;
 
                 // Display confirmation message
-                echo "<p>Task saved</p></br>";
+                echo "<p>Task saved</p><br>";
                 echo '<a href="tasks.php" class="return-link">Return to the list</a>';
             }
         ?>

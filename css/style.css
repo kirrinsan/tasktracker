@@ -30,24 +30,7 @@ p, a {
     text-decoration: none;
 }
 
-button {
-    display: block;
-    margin: 0 auto;
-    background-color:#fafafa;
-    padding: 10px;
-    border: #2a2a2a solid 2px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-}
-
-button:hover {
-    background-color: #2a2a2a;
-}
-
-a:hover {
-    color: #fafafa;
-}
-
+/* Styling Form */
 #tasks {
     font-family: 'Poppins', sans-serif;
     border-collapse: collapse;
@@ -109,6 +92,22 @@ select {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
 }
+/* End Styling Form */
+
+/* Styling Button and Links */
+button {
+    display: block;
+    margin: 0 auto;
+    background-color:#fafafa;
+    padding: 10px;
+    border: #2a2a2a solid 2px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #2a2a2a;
+}
 
 .save-btn:hover {
     background-color: #2a2a2a;
@@ -124,3 +123,4 @@ select {
     text-decoration: underline;
     color:#2a2a2a;
 }
+/* End Styling Button and Links */
