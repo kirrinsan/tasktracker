@@ -1,0 +1,126 @@
+html {
+    background-image: url('../css/img/white-swirl.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 800%;
+    color: #2a2a2a;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p, a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #2a2a2a;
+    text-align: center;
+    text-decoration: none;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    background-color:#fafafa;
+    padding: 10px;
+    border: #2a2a2a solid 2px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #2a2a2a;
+}
+
+a:hover {
+    color: #fafafa;
+}
+
+#tasks {
+    font-family: 'Poppins', sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#tasks td, #tasks th {
+    border: 2px solid #fafafa;
+    padding: 10px;
+}
+
+#tasks th {
+    padding: 10px;
+    background-color: #2a2a2a;
+    color: #fafafa;
+    font-weight: 400;
+}
+
+#tasks tr:nth-child(odd) {
+    background-color: #2a2a2a60;
+}
+
+#tasks tr:nth-child(even) {
+    background-color: #fafafa60;
+}
+
+#tasks tr {
+    color: #2a2a2a;
+}
+
+label {
+    display: block; 
+    width: 120px; 
+    float: left;
+}
+
+fieldset { 
+    border: none; 
+    padding: 5px; 
+}
+
+form {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    border: 2px #2a2a2a solid;
+    padding: 20px 50px 20px 50px;
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    width: 500px;
+    height: 20px;
+}
+
+select {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.save-btn:hover {
+    background-color: #2a2a2a;
+    color: #fafafa;
+}
+
+.nw-course-link:hover {
+    text-decoration: underline;
+    color:#2a2a2a;
+}
+
+.return-link:hover {
+    text-decoration: underline;
+    color:#2a2a2a;
+}

@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <title>Saving Course Info</title>
     <meta name="description" content="This page is for receiving input from the user and store data into the database table">
+    <!-- CSS Stylesheet -->
+    <link href="css/style.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <?php
@@ -29,7 +35,7 @@
         $db = null;
 
         // Show confirmation
-        echo 'Course Saved';
+        echo '<p>Course Saved</p>';
     ?>
 </body>
 </html>

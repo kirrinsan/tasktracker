@@ -4,6 +4,12 @@
         <meta charset="UTF-8">
         <title>Saving Task..</title>
         <meta name="description" content="This page is for capturing inputs and store values into the database table">
+        <!-- CSS Stylesheet -->
+        <link href="css/style.css" rel="stylesheet"/>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php
@@ -20,40 +26,40 @@
 
             // Check for input validation
             if (empty($presentDate)) {
-                echo 'Date is required.</br>';
+                echo '<p>Date is required.</p></br>';
                 $isValid = false;
             } else {
                 // If date is less than 2022, print invalid
                 if ($presentDate < 2022) {
-                    echo 'Present date is invalid. Try again.</br>';
+                    echo '<p>Present date is invalid. Try again.</p></br>';
                     $isValid = false;
                 }
             }
 
             if (empty($taskName) || strlen($taskName > 100)) {
-                echo 'Task name is required. Must be at MAX 100 characters.</br>';
+                echo '<p>Task name is required. Must be at MAX 100 characters.</p></br>';
                 $isValid = false;
             }
 
             if (empty($descr) || strlen($taskName > 150)) {
-                echo 'Description is required. Must be at MAX 150 characters.</br>';
+                echo '<p>Description is required. Must be at MAX 150 characters.</p></br>';
                 $isValid = false;
             } else {
                 if (is_numeric($descr)) {
-                    echo 'Description cannot be numeric.</br>';
+                    echo '<p>Description cannot be numeric.</p></br>';
                 }
             }
 
             if (empty($dueDate)) {
-                echo 'Due date is required.</br>';
+                echo '<p>Due date is required.</p></br>';
                 $isValid = false;
             } else {
                 // If due date is less than 2022, print invalid
                 if ($dueDate < 2022) {
-                    echo 'Due date is invalid. Try again.</br>';
+                    echo '<p>Due date is invalid. Try again.</p></br>';
                     $isValid = false;
                 } else if ($dueDate < $presentDate) {
-                    echo 'Due date cannot be displayed before present date.</br>';
+                    echo '<p>Due date cannot be displayed before present date.</p></br>';
                     $isValid = false;
                 }
             }
@@ -85,8 +91,8 @@
                 $db = null;
 
                 // Display confirmation message
-                echo "Task saved</br>";
-                echo '<a href="tasks.php">Return to the list</a>';
+                echo "<p>Task saved</p></br>";
+                echo '<a href="tasks.php" class="return-link">Return to the list</a>';
             }
         ?>
     </body>
