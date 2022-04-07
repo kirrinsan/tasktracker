@@ -1,15 +1,13 @@
-html {
+main {
     background-image: url('../css/img/white-swirl.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-main {
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2%;
 }
 
 h1 {
@@ -30,7 +28,12 @@ p, a {
     text-decoration: none;
 }
 
-/* Styling Form */
+/* Styling index Page*/
+.st-link:hover {
+    text-decoration: underline;
+}
+
+/* Styling tasks Page */
 #tasks {
     font-family: 'Poppins', sans-serif;
     border-collapse: collapse;
@@ -60,6 +63,10 @@ p, a {
 
 #tasks tr {
     color: #2a2a2a;
+}
+
+.nw-task-link:hover {
+    text-decoration: underline;
 }
 
 label {
@@ -107,11 +114,17 @@ button {
 
 button:hover {
     background-color: #2a2a2a;
+    color: #fafafa;
 }
 
 .save-btn:hover {
     background-color: #2a2a2a;
     color: #fafafa;
+}
+
+.ad-link:hover {
+    text-decoration: underline;
+    color:#2a2a2a;
 }
 
 .nw-course-link:hover {

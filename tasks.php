@@ -31,7 +31,7 @@
                         $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
 
                         // Setup SQL INSERT command
-                        $sql = "SELECT * FROM tasks";
+                        $sql = "SELECT * FROM tasks INNER JOIN courses ON tasks.courseId = courses.courseId";
 
                         // Create command object using db connection & sql command
                         $cmd = $db->prepare($sql);
@@ -50,7 +50,7 @@
                                 <td>' . $task['descr'] . '</td>
                                 <td>' . $task['dueDate'] . '</td>
                                 <td>' . $task['stat'] . '</td>
-                                <td>' . $task['courseId'] . '</td>
+                                <td>' . $task['courseName'] . '</td>
                                 </tr>';
                         }
 
@@ -60,7 +60,7 @@
                 </tbody>
             </table>
             <br>
-            <a href="task-info.php">Add a new task</a>
+            <a href="task-info.php" class="nw-task-link">Add a new task</a>
         </main>
     </body>
 </html>

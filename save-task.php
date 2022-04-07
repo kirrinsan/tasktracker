@@ -58,6 +58,7 @@
                 if ($dueDate < 2022) {
                     echo '<p>Due date is invalid. Try again.</p><br>';
                     $isValid = false;
+                //If due date is before present date, print invalid
                 } else if ($dueDate < $presentDate) {
                     echo '<p>Due date cannot be displayed before present date.</p><br>';
                     $isValid = false;
