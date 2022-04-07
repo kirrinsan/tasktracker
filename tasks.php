@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="EN">
-    <head>
-        <meta charset="UTF-8">
-        <title>Tasks</title>
-        <meta name="description" content="Display list of tasks by recieving data from the database">
-        <!-- CSS Stylesheet -->
-        <link href="css/style.css" rel="stylesheet"/>
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
+    <?php
+        $title = 'Tasks';
+        require 'components/header.php';
+    ?>
         <main>
             <h1>List of Tasks</h1>
             <table id="tasks">
@@ -28,7 +18,7 @@
                 <tbody>
                     <?php
                         // Connect to SQL database
-                        $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+                       require 'components/db.php';
 
                         // Setup SQL INSERT command
                         $sql = "SELECT * FROM tasks INNER JOIN courses ON tasks.courseId = courses.courseId";
@@ -62,5 +52,9 @@
             <br>
             <a href="task-info.php" class="nw-task-link">Add a new task</a>
         </main>
+        <!-- Footer -->
+        <?php
+            require 'components/footer.php';
+        ?>
     </body>
 </html>

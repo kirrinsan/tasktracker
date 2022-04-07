@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="EN">
-    <head>
-        <meta charset="UTF-8">
-        <title>Task Info</title>
-        <meta name="description" content="Create a form to store values for each field and send it into the database">
-        <!-- CSS Stylesheet -->
-        <link href="css/style.css" rel="stylesheet"/>
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
+    <?php
+        $title = 'Creating A Task';
+        require 'components/header.php';
+    ?>
         <main>
             <h1>Create A Task</h1>
             <!-- Create form -->
@@ -46,7 +36,7 @@
                     <select name="courseId" id="courseId">
                         <?php
                             // Connect to the database
-                            $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+                            require 'components/db.php';
 
                             // Setup SQL query to fetch courses from courses table from the database and execute the query to store the results
                             $sql = "SELECT * FROM courses";
@@ -71,5 +61,9 @@
             </form>
             <!-- End Form -->
         </main>
+        <!-- Footer -->
+        <?php
+            require 'components/footer.php';
+        ?>
     </body>
 </html>

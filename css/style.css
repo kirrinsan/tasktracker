@@ -1,3 +1,7 @@
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
 main {
     background-image: url('../css/img/white-swirl.jpg');
     background-repeat: no-repeat;
@@ -7,11 +11,10 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2%;
+    padding-bottom: 75px;
 }
 
 h1 {
-    font-family: 'Poppins', sans-serif;
     font-weight: 900;
     font-size: 800%;
     color: #2a2a2a;
@@ -20,7 +23,6 @@ h1 {
 }
 
 p, a {
-    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #2a2a2a;
@@ -28,14 +30,8 @@ p, a {
     text-decoration: none;
 }
 
-/* Styling index Page*/
-.st-link:hover {
-    text-decoration: underline;
-}
-
 /* Styling tasks Page */
 #tasks {
-    font-family: 'Poppins', sans-serif;
     border-collapse: collapse;
     width: 80%;
     margin: 0 auto;
@@ -65,10 +61,6 @@ p, a {
     color: #2a2a2a;
 }
 
-.nw-task-link:hover {
-    text-decoration: underline;
-}
-
 label {
     display: block; 
     width: 120px; 
@@ -81,7 +73,6 @@ fieldset {
 }
 
 form {
-    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 400;
     border: 2px #2a2a2a solid;
@@ -89,14 +80,12 @@ form {
 }
 
 input {
-    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     width: 500px;
     height: 20px;
 }
 
 select {
-    font-family: 'Poppins', sans-serif;
     font-size: 18px;
 }
 /* End Styling Form */
@@ -108,7 +97,6 @@ button {
     background-color:#fafafa;
     padding: 10px;
     border: #2a2a2a solid 2px;
-    font-family: 'Poppins', sans-serif;
     font-size: 18px;
 }
 
@@ -136,4 +124,127 @@ button:hover {
     text-decoration: underline;
     color:#2a2a2a;
 }
+
+.st-link:hover {
+    text-decoration: underline;
+}
+
+
+.nw-task-link:hover {
+    text-decoration: underline;
+}
+
 /* End Styling Button and Links */
+
+/* Styling Header */
+header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+header div:nth-child(1) {
+    height: 50px;
+    margin-left: 15px;
+}
+
+header div:nth-child(1) a{
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #fafafa;
+    font-size: 1.3em;
+}
+
+header nav {
+    line-height: 50px;
+    display: flex;
+    background-color: #2a2a2a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+}
+
+.right-links {
+    width: 100%;
+    height: 50px;
+    color: #fafafa;
+    list-style: none;
+
+}
+
+.right-links li {
+    float: right;
+    margin-block-end: 0;
+    display: inline-block;
+    padding: 0 10px 0 10px;
+}
+
+.right-links li:nth-child(1) a {
+    margin: 0 auto;
+    background-color:#2a2a2a;
+    padding: 10px;
+    border: #fafafa solid 2px;
+    font-size: 18px;
+    color: #fafafa;
+}
+
+.right-links li:nth-child(1) a:hover {
+    text-decoration: underline;
+}
+
+.right-links li:nth-child(2) a {
+    margin: 0 auto;
+    background-color:#fafafa;
+    padding: 10px;
+    font-size: 18px;
+    color: #2a2a2a;
+}
+
+.right-links li:nth-child(2) a:hover {
+    text-decoration: underline;
+}
+
+.right-links li:nth-child(3) a {
+    padding: 10px;
+    font-size: 18px;
+    color: #fafafa;
+}
+
+.right-links li:nth-child(3) a:hover {
+    text-decoration: underline;
+}
+
+
+/* .registr {
+    margin: 0 auto;
+    background-color:#2a2a2a;
+    padding: 10px;
+    border: #fafafa solid 2px;
+    font-size: 18px;
+}
+
+.login {
+    margin: 0 auto;
+    background-color:#2a2a2a;
+    padding: 10px;
+    border: #fafafa solid 2px;
+    font-size: 18px;
+} */
+
+/* Styling footer */
+footer {
+    display: flex;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #2a2a2a;
+    color: #fafafa;
+    justify-content: center;
+    align-items: center;
+}
