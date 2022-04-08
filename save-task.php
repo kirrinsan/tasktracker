@@ -2,6 +2,7 @@
         $title = 'Saving Task..';
         require 'components/header.php';
 
+        try {
             // Capture inputs from POST array and store each in a variable
             $presentDate = $_POST['presentDate'];
             $taskName = $_POST['taskName'];
@@ -100,6 +101,10 @@
                 echo '<div class="sv-txt"><h3>Task Saved!</h3>
                         <a href="tasks.php" class="return-link">Return to List of Tasks</a></div>';
             }
+        }
+        catch (Exception $error) {
+            header('location:error.php');
+        }
         require 'components/footer.php';
     ?>
     </body>

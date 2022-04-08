@@ -271,3 +271,12 @@ footer {
 .edt-task:hover {
     text-decoration: underline;
 }
+
+.err-msg h3 {
+    margin: 5px;
+}
+
+.err-msg {
+    padding: 5px;
+    text-align: center;
+}

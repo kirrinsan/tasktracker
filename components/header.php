@@ -2,7 +2,7 @@
 <html lang="EN">
     <head>
         <meta charset="UTF-8">
-        <title>TaskTracker</title>
+        <title>TaskTracker | <?php echo $title; ?></title>
         <meta name="description" content="Display list of tasks by recieving data from the database">
         <!-- CSS Stylesheet -->
         <link href="css/style.css" rel="stylesheet"/>

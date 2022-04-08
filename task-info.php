@@ -2,40 +2,45 @@
         $title = 'Creating Task..';
         require 'components/header.php';
 
-        // Check for id in URL. If id exists, fetch selected task from db for display
-        $id = null;
-        $presentDate = null;
-        $taskName = null;
-        $descr = null;
-        $dueDate = null;
-        $stat = null;
-        $courseId = null;
+        try {
+            // Check for id in URL. If id exists, fetch selected task from db for display
+            $id = null;
+            $presentDate = null;
+            $taskName = null;
+            $descr = null;
+            $dueDate = null;
+            $stat = null;
+            $courseId = null;
 
-        if (isset($_GET['id'])) {
-            if (is_numeric($_GET['id'])) {
-                // If we have a number in URL, store in a variable
-                $id = $_GET['id'];
-    
-                // Connect to SQL database
-                require 'components/db.php';
+            if (isset($_GET['id'])) {
+                if (is_numeric($_GET['id'])) {
+                    // If we have a number in URL, store in a variable
+                    $id = $_GET['id'];
+        
+                    // Connect to SQL database
+                    require 'components/db.php';
 
-                $sql = "SELECT * FROM tasks WHERE id = :id";
-                $cmd = $db->prepare($sql);
-                $cmd->bindParam(':id', $id, PDO::PARAM_INT);
-                $cmd->execute();
-    
-                // Use PDO fetch command to get one row
-                $task = $cmd->fetch();
-                $presentDate = $task['presentDate'];
-                $taskName = $task['taskName'];
-                $descr = $task['descr'];
-                $dueDate = $task['dueDate'];
-                $stat = $task['stat'];
-                $courseId = $task['courseId'];
-    
-                // Disconnect
-                $db = null;
+                    $sql = "SELECT * FROM tasks WHERE id = :id";
+                    $cmd = $db->prepare($sql);
+                    $cmd->bindParam(':id', $id, PDO::PARAM_INT);
+                    $cmd->execute();
+        
+                    // Use PDO fetch command to get one row
+                    $task = $cmd->fetch();
+                    $presentDate = $task['presentDate'];
+                    $taskName = $task['taskName'];
+                    $descr = $task['descr'];
+                    $dueDate = $task['dueDate'];
+                    $stat = $task['stat'];
+                    $courseId = $task['courseId'];
+        
+                    // Disconnect
+                    $db = null;
+                }
             }
+        }
+        catch (Exception $error) {
+            header('location:error.php');
         }
     ?>
     <body>
@@ -72,27 +77,32 @@
                     <label for="courseId" class="col-1">Course: </label>
                     <select name="courseId" id="courseId">
                         <?php
-                            // Connect to the database
-                            require 'components/db.php';
+                            try {
+                                // Connect to the database
+                                require 'components/db.php';
 
-                            // Setup SQL query to fetch courses from courses table from the database and execute the query to store the results
-                            $sql = "SELECT * FROM courses";
-                            $cmd = $db->prepare($sql);
-                            $cmd->execute();
-                            $courses = $cmd->fetchAll();
+                                // Setup SQL query to fetch courses from courses table from the database and execute the query to store the results
+                                $sql = "SELECT * FROM courses";
+                                $cmd = $db->prepare($sql);
+                                $cmd->execute();
+                                $courses = $cmd->fetchAll();
 
-                            // Loop through courses and display each record
-                            foreach ($courses as $course) {
-                                if ($course['id'] == $id) {
-                                    echo '<option selected value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                // Loop through courses and display each record
+                                foreach ($courses as $course) {
+                                    if ($course['id'] == $id) {
+                                        echo '<option selected value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                    }
+                                    else {
+                                        echo '<option value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                    } 
                                 }
-                                else {
-                                    echo '<option value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
-                                } 
-                            }
 
-                            // Disconnect
-                            $db = null;
+                                // Disconnect
+                                $db = null;
+                            }
+                            catch (Exception $error) {
+                                header('location:error.php');
+                            }
                         ?>
                     </select>
                     <!-- Option to add new course to the list -->
