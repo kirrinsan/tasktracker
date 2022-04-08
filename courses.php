@@ -8,7 +8,7 @@
     <body>
         <?php
             // Connect to the database
-            $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+            require 'components/db.php';
 
             // Setup SQL query to fetch courses from courses table from the database and execute the query to store the results
             $sql = "SELECT * FROM courses";

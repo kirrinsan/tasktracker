@@ -20,7 +20,7 @@
                     $id = $_GET['id'];
 
                     // db Connection
-                    $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+                    require 'components/db.php';
 
                     // Setup SQL DELETE command
                     $sql = "DELETE FROM tasks WHERE id = :id";
@@ -33,17 +33,17 @@
                     // Disconnect 
                     $bd = null;
 
-                    echo '<h1>Task Successfully Deleted</h1>
-                        <a href="tasks.php">Return to List of Tasks</a>';
+                    echo '<div class="sv-txt"><h3>Task Successfully Deleted!</h3>
+                        <a href="tasks.php">Return to List of Tasks</a></div>';
 
                 }
-                else {
-                    echo "Invalid Task";
+                else { // If id is not a number
+                    echo '<div class="wrn-txt"><p>Invalid Task</p></div>';
                 }
             }
             else {
-                // id is missing
-                echo "Invalid Task";
+                // If id is missing
+                echo '<div class="wrn-txt"><p>Invalid Task</p></div>';
             }
 
         ?>

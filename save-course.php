@@ -17,7 +17,7 @@
         $courseName = $_POST['courseName'];
 
         // Connect to SQL database
-        $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+        require 'components/db.php';
 
         // Setup SQL INSERT command
         $sql = "INSERT INTO courses (courseName) VALUES (:courseName)";
@@ -35,7 +35,7 @@
         $db = null;
 
         // Show confirmation
-        echo '<p>Course Saved</p>';
+        echo '<div class="sv-txt"><h3>Course Saved!</h3></div>';
     ?>
 </body>
 </html>

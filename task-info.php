@@ -26,13 +26,15 @@
                 // If we have a number in URL, store in a variable
                 $id = $_GET['id'];
     
-                $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+                // Connect to SQL database
+                require 'components/db.php';
+
                 $sql = "SELECT * FROM tasks WHERE id = :id";
                 $cmd = $db->prepare($sql);
                 $cmd->bindParam(':id', $id, PDO::PARAM_INT);
                 $cmd->execute();
     
-                // Use PDO fetch command instead of fetchAll as we are only getting one row
+                // Use PDO fetch command to get one row
                 $task = $cmd->fetch();
                 $presentDate = $task['presentDate'];
                 $taskName = $task['taskName'];
@@ -41,6 +43,7 @@
                 $stat = $task['stat'];
                 $courseId = $task['courseId'];
     
+                // Disconnect
                 $db = null;
             }
         }
@@ -80,7 +83,7 @@
                     <select name="courseId" id="courseId">
                         <?php
                             // Connect to the database
-                            $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
+                            require 'components/db.php';
 
                             // Setup SQL query to fetch courses from courses table from the database and execute the query to store the results
                             $sql = "SELECT * FROM courses";
@@ -93,7 +96,9 @@
                                 if ($course['id'] == $id) {
                                     echo '<option selected value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
                                 }
-                                echo '<option value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                else {
+                                    echo '<option value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                } 
                             }
 
                             // Disconnect
@@ -101,9 +106,10 @@
                         ?>
                     </select>
                     <!-- Option to add new course to the list -->
-                    <a href="course-info.php" class="nw-course-link">Add new course</a>
+                    <a href="course-info.php" class="nw-course-link">Add New Course</a>
                 </fieldset>
                 <br>
+                <input name="id" id="id" value="<?php echo $id; ?>" type="hidden">
                 <button class="save-btn">Save Task</button>
             </form>
             <!-- End Form -->

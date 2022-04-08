@@ -1,11 +1,15 @@
 html {
     font-family: 'Poppins', sans-serif;
+    height: 100%;
+    margin: 0;
 }
 
 body {
     background-image: url('../css/img/white-swirl.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
 }
 
 main {
@@ -13,8 +17,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 75px;
-    height: 100%;
+    padding: 3%;
+    padding-bottom: 100px;
 }
 
 h1 {
@@ -43,6 +47,7 @@ p, a {
 #tasks td, #tasks th {
     border: 2px solid #fafafa;
     padding: 10px;
+    text-align: center;
 }
 
 #tasks th {
@@ -221,23 +226,6 @@ header nav {
     text-decoration: underline;
 }
 
-
-/* .registr {
-    margin: 0 auto;
-    background-color:#2a2a2a;
-    padding: 10px;
-    border: #fafafa solid 2px;
-    font-size: 18px;
-}
-
-.login {
-    margin: 0 auto;
-    background-color:#2a2a2a;
-    padding: 10px;
-    border: #fafafa solid 2px;
-    font-size: 18px;
-} */
-
 /* Styling footer */
 footer {
     display: flex;
@@ -250,4 +238,36 @@ footer {
     color: #fafafa;
     justify-content: center;
     align-items: center;
+}
+
+/* Text */
+.sv-txt h3 {
+    margin: 5px;
+}
+
+.sv-txt {
+    padding: 5px;
+    text-align: center;
+    background-color: rgba(42, 42, 42, 0.2);
+}
+
+.wrn-txt {
+    padding: 5px;
+    background-color: rgba(255, 255, 0, 0.5)
+}
+
+/* Styling delete and edit links */
+.dlt-task {
+    background-color:#910000;
+    padding: 10px;
+    color: #fafafa; 
+}
+
+.edt-task {
+    padding: 10px;
+    color: #2a2a2a;
+}
+
+.edt-task:hover {
+    text-decoration: underline;
 }
