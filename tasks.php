@@ -1,7 +1,19 @@
-    <?php
-        $title = 'Tasks';
-        require 'components/header.php';
-    ?>
+<!DOCTYPE html>
+<html lang="EN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tasks</title>
+        <meta name="description" content="Display list of tasks by recieving data from the database">
+        <!-- CSS Stylesheet -->
+        <link href="css/style.css" rel="stylesheet"/>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+        <!-- Javascript -->
+        <script src="js/script.js" type="text/javascript" defer></script>
+    </head>
+    <body>
         <main>
             <h1>List of Tasks</h1>
             <table id="tasks">
@@ -13,12 +25,13 @@
                         <th>Due Date</th>
                         <th>Status</th>
                         <th>Course</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         // Connect to SQL database
-                       require 'components/db.php';
+                        $db = new PDO('mysql:host=172.31.22.43;dbname=Karen200266472', 'Karen200266472', 'nsJapNNQTJ');
 
                         // Setup SQL INSERT command
                         $sql = "SELECT * FROM tasks INNER JOIN courses ON tasks.courseId = courses.courseId";
@@ -41,6 +54,10 @@
                                 <td>' . $task['dueDate'] . '</td>
                                 <td>' . $task['stat'] . '</td>
                                 <td>' . $task['courseName'] . '</td>
+                                <td>
+                                    <a href="delete-task.php?id=' . $task['id'] . '" onclick="return Delete()">Delete</a>
+                                    <a href="task-info.php?id=' . $task['id'] . '">Edit</a>
+                                </td>
                                 </tr>';
                         }
 
@@ -52,9 +69,5 @@
             <br>
             <a href="task-info.php" class="nw-task-link">Add a new task</a>
         </main>
-        <!-- Footer -->
-        <?php
-            require 'components/footer.php';
-        ?>
     </body>
 </html>
