@@ -21,9 +21,9 @@
                     <a href="index.php">TaskTracker</a>
                 </div>
                 <ul class="right-links">
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Tasks</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="tasks.php">Tasks</a></li>
                 </ul>
             </nav>
         </header>
