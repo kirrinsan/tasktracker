@@ -21,9 +21,21 @@
                     <a href="index.php">TaskTracker</a>
                 </div>
                 <ul class="right-links">
-                    <li><a href="register.php">Register</a></li>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="tasks.php">Tasks</a></li>
+                <?php
+                    // Access the current session if not already accessed
+                    if (session_status() == PHP_SESSION_NONE){
+                        session_start();
+                    }
+
+                    if (empty($_SESSION['userName'])) {
+                        echo '<li><a href="register.php">Register</a></li>
+                            <li><a href="login.php">Login</a></li>';
+                    }
+                    else {
+                        echo '<li><a href="tasks.php">' . $_SESSION['userName'] . '</a></li>
+                            <li><a href="logout.php">Logout</a></li>';
+                    }
+                    ?>
                 </ul>
             </nav>
         </header>

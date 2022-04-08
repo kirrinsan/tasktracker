@@ -246,25 +246,25 @@ footer {
 }
 
 .sv-txt {
-    padding: 5px;
+    padding: 5px 20px 5px 20px;
     text-align: center;
     background-color: rgba(42, 42, 42, 0.2);
 }
 
 .wrn-txt {
-    padding: 5px;
+    padding: 5px 20px 5px 20px;
     background-color: rgba(255, 255, 0, 0.5)
 }
 
 /* Styling delete and edit links */
 .dlt-task {
     background-color:#910000;
-    padding: 10px;
+    padding: 5px 20px 5px 20px;
     color: #fafafa; 
 }
 
 .edt-task {
-    padding: 10px;
+    padding: 5px 20px 5px 20px;
     color: #2a2a2a;
 }
 
@@ -277,6 +277,10 @@ footer {
 }
 
 .err-msg {
-    padding: 5px;
+    padding: 5px 20px 5px 20px;
     text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
 }

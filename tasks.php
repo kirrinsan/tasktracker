@@ -13,7 +13,12 @@
                         <th>Due Date</th>
                         <th>Status</th>
                         <th>Course</th>
-                        <th>Action</th>
+                        <?php
+                            // If user is not logged in, hide the action
+                            if (!empty($_SESSION['userName'])) {
+                                echo '<th>Action</th>';
+                            } 
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,25 +39,30 @@
                             // Return an array that contains all rows of a result set
                             $tasks = $cmd->fetchAll();
 
-                            // Loop through the tasks, new row for each task, new column for each value
-                            foreach ($tasks as $task) {
-                                echo '<tr>
-                                    <td>' . $task['presentDate'] . '</td>
-                                    <td>' . $task['taskName'] . '</td>
-                                    <td>' . $task['descr'] . '</td>
-                                    <td>' . $task['dueDate'] . '</td>
-                                    <td>' . $task['stat'] . '</td>
-                                    <td>' . $task['courseName'] . '</td>
-                                    <td>
-                                        <a href="task-info.php?id=' . $task['id'] . '" class="edt-task">Edit</a>
-                                        <a href="delete-task.php?id=' . $task['id'] . '" onclick="return Delete()" class="dlt-task">Delete</a>
-                                    </td>
-                                    </tr>';
-                            }
+                            // If user is not logged in, hide tasks
+                            if (!empty($_SESSION['userName'])){
+                                // Loop through the tasks, new row for each task, new column for each value
+                                foreach ($tasks as $task) {
+                                    echo '<tr>
+                                        <td>' . $task['presentDate'] . '</td>
+                                        <td>' . $task['taskName'] . '</td>
+                                        <td>' . $task['descr'] . '</td>
+                                        <td>' . $task['dueDate'] . '</td>
+                                        <td>' . $task['stat'] . '</td>
+                                        <td>' . $task['courseName'] . '</td>';
 
-                            // Disconnect
-                            $db = null;
-                        }
+                                        if (!empty($_SESSION['userName'])) {
+                                            echo '<td>
+                                            <a href="task-info.php?id=' . $task['id'] . '" class="edt-task">Edit</a>
+                                            <a href="delete-task.php?id=' . $task['id'] . '" onclick="return Delete()" class="dlt-task">Delete</a>
+                                        </td>';
+                                        }                                    
+                                        echo '</tr>';
+                                }
+                                // Disconnect
+                                $db = null;
+                            }
+                            }
                         catch (Exception $error) {
                             // If error is caught, redirect user to the error page
                             header('location:error.php');
@@ -60,8 +70,22 @@
                     ?>
                 </tbody>
             </table>
+            <?php
+                if(empty($_SESSION['userName'])) {
+                    echo '<br><div class="sv-txt"><p><a href="login.php">Login</a> or <a href="register.php">Register</a> to start filling in your tasks.</p></div>';
+                }
+                else {
+                    echo '';
+                } 
+            ?>
             <br>
-            <a href="task-info.php" class="nw-task-link">Add a new task</a>
+            <?php
+                // If user is not logged in, hide the link
+                if (!empty($_SESSION['userName'])) {
+                    echo '<a href="task-info.php" class="nw-task-link">Add a new task</a>';
+                } 
+            ?>
+            
         </main>
     <?php
         require 'components/footer.php';

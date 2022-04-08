@@ -2,7 +2,6 @@
     $title = 'Register';
     require 'components/header.php';
 ?>
-
 <main>
     <h1>Registration</h1>
     <p>Passwords must be a minimum of 8 characters, including 1 digit, 1 uppercase letter and 1 lowercase letter.</p>
@@ -24,6 +23,8 @@
         </div>
     </form>
 </main>
-
+<?php
+    require 'components/footer.php';
+?>
 </body>
 </html>

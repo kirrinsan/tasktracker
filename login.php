@@ -2,12 +2,11 @@
     $title = 'Login';
     require 'components/header.php';
 ?>
-
 <main>
     <h1>Login</h1>
     <?php
     if (empty($_GET['invalid'])) {
-        echo '<div class="wrn-txt"><p>Please enter your credentials</p></div>';
+        echo '<p>Please enter your credentials</p>';
     }
     else {
         echo '<div class="wrn-txt"><p>Invalid Login</p></div>';
@@ -27,6 +26,8 @@
         </div>
     </form>
 </main>
-
+<?php
+    require 'components/footer.php';
+?>
 </body>
 </html>
