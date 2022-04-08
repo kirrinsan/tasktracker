@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="EN">
-    <head>
-        <meta charset="UTF-8">
-        <title>Task Info</title>
-        <meta name="description" content="Create a form to store values for each field and send it into the database">
-        <!-- CSS Stylesheet -->
-        <link href="css/style.css" rel="stylesheet"/>
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    </head>
     <?php
+        $title = 'Creating Task..';
+        require 'components/header.php';
+
         // Check for id in URL. If id exists, fetch selected task from db for display
         $id = null;
         $presentDate = null;
@@ -114,5 +104,8 @@
             </form>
             <!-- End Form -->
         </main>
+    <?php
+        require 'components/footer.php';
+    ?>
     </body>
 </html>

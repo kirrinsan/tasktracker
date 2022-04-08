@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="EN">
-    <head>
-        <meta charset="UTF-8">
-        <title>Saving Task..</title>
-        <meta name="description" content="This page is for capturing inputs and store values into the database table">
-        <!-- CSS Stylesheet -->
-        <link href="css/style.css" rel="stylesheet"/>
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <?php
+    <?php
+        $title = 'Saving Task..';
+        require 'components/header.php';
+
             // Capture inputs from POST array and store each in a variable
             $presentDate = $_POST['presentDate'];
             $taskName = $_POST['taskName'];
@@ -111,6 +100,7 @@
                 echo '<div class="sv-txt"><h3>Task Saved!</h3>
                         <a href="tasks.php" class="return-link">Return to List of Tasks</a></div>';
             }
-        ?>
+        require 'components/footer.php';
+    ?>
     </body>
 </html>

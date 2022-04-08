@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="EN">
-<head>
-    <meta charset="UTF-8" />
-    <title>Course Info</title>
-    <meta name="description" content="This page is for creating new courses">
-    <!-- CSS Stylesheet -->
-    <link href="css/style.css" rel="stylesheet"/>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+<?php
+    $title = 'Tasks';
+    require 'components/header.php';
+?>
     <main>
         <h1>Course Info</h1>
         <!-- Create Form -->
@@ -25,5 +15,8 @@
         </form>
         <!-- End Form -->
     </main>
+<?php
+    require 'components/footer.php';
+?>
 </body>
 </html>

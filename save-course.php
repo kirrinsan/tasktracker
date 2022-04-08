@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Saving Course Info</title>
-    <meta name="description" content="This page is for receiving input from the user and store data into the database table">
-    <!-- CSS Stylesheet -->
-    <link href="css/style.css" rel="stylesheet"/>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <?php
+<?php
+    $title = 'Saving Course...';
+    require 'components/header.php';
+
         // Get form input
         $courseName = $_POST['courseName'];
 
@@ -36,6 +25,8 @@
 
         // Show confirmation
         echo '<div class="sv-txt"><h3>Course Saved!</h3></div>';
-    ?>
+    
+    require 'components/footer.php';
+?>
 </body>
 </html>

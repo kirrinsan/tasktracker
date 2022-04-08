@@ -1,4 +1,5 @@
     <?php
+        $title = 'Tasks';
         require 'components/header.php';
     ?>
         <main>
