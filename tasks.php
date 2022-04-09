@@ -39,7 +39,7 @@
                             // Return an array that contains all rows of a result set
                             $tasks = $cmd->fetchAll();
 
-                            // If user is not logged in, hide tasks
+                            // If unregistered user is present, hide tasks
                             if (!empty($_SESSION['userName'])){
                                 // Loop through the tasks, new row for each task, new column for each value
                                 foreach ($tasks as $task) {
@@ -71,8 +71,9 @@
                 </tbody>
             </table>
             <?php
+                // If user is not registered, show message
                 if(empty($_SESSION['userName'])) {
-                    echo '<br><div class="sv-txt"><p><a href="login.php">Login</a> or <a href="register.php">Register</a> to start filling in your tasks.</p></div>';
+                    echo '<br><div class="sv-txt"><p><a href="login.php">Login</a> or <a href="register.php">Register</a> to start filling out your tasks.</p></div>';
                 }
                 else {
                     echo '';
@@ -82,7 +83,7 @@
             <?php
                 // If user is not logged in, hide the link
                 if (!empty($_SESSION['userName'])) {
-                    echo '<a href="task-info.php" class="nw-task-link">Add a new task</a>';
+                    echo '<a href="task-info.php" class="nw-task-link">Add a New Task</a>';
                 } 
             ?>
             

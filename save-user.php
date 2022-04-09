@@ -55,7 +55,8 @@
         $db = null;
 
         // Display message
-        echo '<div class="sv-txt"><h3>User Saved!</h3></div>';
+        echo '<div class="sv-txt"><h3>User Saved!</h3>
+            <a href="login.php">Login to Get Started!</a></div>';
     }
 
 ?>

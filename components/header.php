@@ -12,6 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
         <!-- Javascript -->
         <script src="js/script.js" type="text/javascript" defer></script>
+        <!--FontAwesome Icons-->
+        <script src="https://kit.fontawesome.com/fb773317ff.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- Header -->
@@ -29,11 +31,12 @@
 
                     if (empty($_SESSION['userName'])) {
                         echo '<li><a href="register.php">Register</a></li>
-                            <li><a href="login.php">Login</a></li>';
+                            <li><a href="login.php">Login</a></li>
+                            <li><a href="tasks.php">Tasks</a></li>';
                     }
                     else {
-                        echo '<li><a href="tasks.php">' . $_SESSION['userName'] . '</a></li>
-                            <li><a href="logout.php">Logout</a></li>';
+                        echo '<li><a href="logout.php">Logout</a></li>
+                        <li><a href="tasks.php">' . $_SESSION['userName'] . '</a></li>';
                     }
                     ?>
                 </ul>

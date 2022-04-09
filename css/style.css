@@ -284,3 +284,10 @@ footer {
 a:hover {
     text-decoration: underline;
 }
+
+#show-hide {
+    margin-left: -30px;
+    margin-top: 5px;
+    position: absolute;
+    cursor: pointer;
+}
