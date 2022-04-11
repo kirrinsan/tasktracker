@@ -1,4 +1,5 @@
     <?php
+        require 'components/authentication.php';
         $title = 'Creating Task..';
         require 'components/header.php';
 
@@ -11,6 +12,7 @@
             $dueDate = null;
             $stat = null;
             $courseId = null;
+            $image = null;
 
             if (isset($_GET['id'])) {
                 if (is_numeric($_GET['id'])) {
@@ -33,6 +35,7 @@
                     $dueDate = $task['dueDate'];
                     $stat = $task['stat'];
                     $courseId = $task['courseId'];
+                    $image = $task['image'];
         
                     // Disconnect
                     $db = null;
@@ -47,7 +50,7 @@
         <main>
             <h1>Create A Task</h1>
             <!-- Create form -->
-            <form method="post" action="save-task.php">
+            <form method="post" action="save-task.php" enctype="multipart/form-data">
                 <fieldset>
                     <label for="presentDate">Date: </label>
                     <input name="presentDate" id="presentDate" type="date" min="2022-01-01" max="2032-01-01" value="<?php echo $presentDate; ?>"/>
@@ -90,10 +93,10 @@
                                 // Loop through courses and display each record
                                 foreach ($courses as $course) {
                                     if ($course['id'] == $id) {
-                                        echo '<option selected value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                        echo '<option selected value="' . $course['courseId'] . '">' . $course['courseName'] . '</option>';
                                     }
                                     else {
-                                        echo '<option value="' . $course['courseId'] .'">' . $course['courseName'] . '</option>';
+                                        echo '<option value="' . $course['courseId'] . '">' . $course['courseName'] . '</option>';
                                     } 
                                 }
 
@@ -108,8 +111,18 @@
                     <!-- Option to add new course to the list -->
                     <a href="course-info.php" class="nw-course-link">Add New Course</a>
                 </fieldset>
+                <fieldset>
+                    <label for="image">Image:</label>
+                    <input type="file" name="image" id="image" accept=".png,.jpg">
+                </fieldset>
+                <?php
+                    if (!empty($image)) {
+                        echo '<div><img src="img/' . $image . '" alt="image"></div>';
+                    }
+                ?>
                 <br>
                 <input name="id" id="id" value="<?php echo $id; ?>" type="hidden">
+                <input name="currentImage" id="currentImage" value="<?php echo $image; ?>" type="hidden">
                 <button class="save-btn">Save Task</button>
             </form>
             <!-- End Form -->

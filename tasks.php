@@ -14,7 +14,13 @@
                         <th>Status</th>
                         <th>Course</th>
                         <?php
-                            // If user is not logged in, hide the action
+                            //If user is not logged in, hide image
+                            if(!empty($_SESSION['userName'])) {
+                                echo '<th>Image</th>';
+                            }
+                        ?>
+                        <?php
+                            // If user is not logged in, hide action
                             if (!empty($_SESSION['userName'])) {
                                 echo '<th>Action</th>';
                             } 
@@ -49,8 +55,17 @@
                                         <td>' . $task['descr'] . '</td>
                                         <td>' . $task['dueDate'] . '</td>
                                         <td>' . $task['stat'] . '</td>
-                                        <td>' . $task['courseName'] . '</td>';
+                                        <td>' . $task['courseName'] . '</td>
+                                        <td>';
 
+                                        // If user is unregistered, hide image
+                                        if (!empty($task['image'])){
+                                            echo '<img src="img/' . $task['image'] . '" alt="image" class="thumb">';
+                                        }
+
+                                        echo '</td>';
+
+                                        // Hide edit/delete if user is not logged in
                                         if (!empty($_SESSION['userName'])) {
                                             echo '<td>
                                             <a href="task-info.php?id=' . $task['id'] . '" class="edt-task">Edit</a>

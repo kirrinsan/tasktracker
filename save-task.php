@@ -11,6 +11,7 @@
             $stat = $_POST['stat'];
             $courseId = $_POST['courseId'];
             $id = $_POST['id'];
+            $image = $_FILES['image'];
 
             // Indicate whether or not form inputs are valid
             $isValid = true;
@@ -60,6 +61,32 @@
                 }
             }
 
+            // Validate image upload if any
+            if (!empty($image['name'])) {
+                // get file name
+                $name = $image['name'];
+        
+                // get temp location
+                $tmpName = $image['tmp_name'];
+        
+                // check file is a png or jpg
+                if ((mime_content_type($tmpName) != 'image/png') && mime_content_type($tmpName) != 'image/jpeg') {
+                    echo 'Image must be in .png or .jpg format';
+                    $ok = false;
+                }
+        
+                // if file is valid, generate a unique name using the session object to prevent overwriting
+                // eg. poster.png => a3498u7asdf-poster.png
+                $name = session_id() . '-' . $name;
+        
+                // move from cache to img with new unique name
+                move_uploaded_file($image['tmp_name'], 'img/' . $name);
+            }
+            else {
+                // No new image uploaded. If movie has an image attached, keep the name to prevent deletion
+                $name = $_POST['currentImage'];
+            }
+
             // If all form inputs are valid, connect & save
             if ($isValid) {
 
@@ -68,11 +95,11 @@
 
                 // If there is no id, setup SQL INSERT command
                 if (empty($id)) {
-                    $sql = "INSERT INTO tasks (presentDate, taskName, descr, dueDate, stat, courseId) VALUES (:presentDate, :taskName, :descr, :dueDate, :stat, :courseId)";    
+                    $sql = "INSERT INTO tasks (presentDate, taskName, descr, dueDate, stat, courseId, image) VALUES (:presentDate, :taskName, :descr, :dueDate, :stat, :courseId, :image)";    
                 }
                 // If id is available, SQL UPDATE instead
                 else {
-                    $sql = "UPDATE tasks SET presentDate = :presentDate, taskName = :taskName, descr = :descr, dueDate = :dueDate, stat = :stat, courseId = :courseId WHERE id = :id";
+                    $sql = "UPDATE tasks SET presentDate = :presentDate, taskName = :taskName, descr = :descr, dueDate = :dueDate, stat = :stat, courseId = :courseId, image = :image WHERE id = :id";
                 }
 
                 // Create command object using database connection & sql command
@@ -85,6 +112,7 @@
                 $cmd->bindParam(':dueDate', $dueDate, PDO::PARAM_STR, 20);
                 $cmd->bindParam(':stat', $stat, PDO::PARAM_STR, 50);
                 $cmd->bindParam(':courseId', $courseId, PDO::PARAM_INT);
+                $cmd->bindParam(':image', $name, PDO::PARAM_STR, 100);
 
                 // If we have id, bind it
                 if (!empty($id)) {
